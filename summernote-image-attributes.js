@@ -22,11 +22,11 @@
     }).promise();
   };
   $.extend(true,$.summernote.lang, {
-    'en-US': { /* US English(Default Language) */
+    'ja-JP': { /* JP Japanese(Default Language) */
       imageAttributes: {
-        dialogTitle: 'Image Attributes',
-        tooltip: 'Image Attributes',
-        tabImage: 'Image',
+        dialogTitle: '詳細設定',
+        tooltip: '詳細設定',
+        tabImage: '画像',
           src: 'Source',
           browse: 'Browse',
           title: 'Title',
@@ -36,10 +36,10 @@
           class: 'Class',
           style: 'Style',
           role: 'Role',
-        tabLink: 'Link',
+        tabLink: 'リンク',
           linkHref: 'URL',
           linkTarget: 'Target',
-          linkTargetInfo: 'Options: _self, _blank, _top, _parent',
+          linkTargetInfo: '選択可能: _self, _blank, _top, _parent',
           linkClass: 'Class',
           linkStyle: 'Style',
           linkRel: 'Rel',
@@ -56,7 +56,7 @@
     imageAttributes: {
       icon: '<i class="note-icon-pencil"/>',
       removeEmpty: true,
-      disableUpload: false,
+      disableUpload: true,
       imageFolder: ''
     }
   });
@@ -89,37 +89,13 @@
         var $container = options.dialogsInBody ? $(document.body) : $editor;
         var timestamp = Date.now();
         var body = '<ul class="nav note-nav nav-tabs note-nav-tabs">' +
-                   '  <li class="active"><a href="#note-imageAttributes' + timestamp + '" data-toggle="tab">' + lang.imageAttributes.tabImage + '</a></li>' +
-                   '  <li><a href="#note-imageAttributes-attributes' + timestamp + '" data-toggle="tab">' + lang.imageAttributes.tabAttributes + '</a></li>' +
-                   '  <li><a href="#note-imageAttributes-link' + timestamp + '" data-toggle="tab">' + lang.imageAttributes.tabLink + '</a></li>';
+                   '  <li class="nav-item"><a class="nav-link active" href="#note-imageAttributes-link' + timestamp + '" data-toggle="tab">' + lang.imageAttributes.tabLink + '</a></li>';
         if (options.imageAttributes.disableUpload == false) {
            body += '  <li><a href="#note-imageAttributes-upload' + timestamp + '" data-toggle="tab">' + lang.imageAttributes.tabUpload + '</a></li>';
         }
         body +=    '</ul>' +
                    '<div class="tab-content note-tab-content">' +
-                   // Tab 2
-                   '  <div class="tab-pane note-tab-pane" id="note-imageAttributes-attributes' + timestamp + '">' +
-                   '    <div class="note-form-group form-group note-group-imageAttributes-class">' +
-                   '      <label class="control-label note-form-label col-sm-3">' + lang.imageAttributes.class + '</label>' +
-                   '      <div class="input-group note-input-group col-xs-12 col-sm-9">' +
-                   '        <input class="note-imageAttributes-class form-control note-form-control note-input" type="text">' +
-                   '      </div>' +
-                   '    </div>' +
-                   '    <div class="note-form-group form-group note-group-imageAttributes-style">' +
-                   '      <label class="control-label note-form-label col-sm-3">' + lang.imageAttributes.style + '</label>' +
-                   '      <div class="input-group note-input-group col-xs-12 col-sm-9">' +
-                   '        <input class="note-imageAttributes-style form-control note-form-control note-input" type="text">' +
-                   '      </div>' +
-                   '    </div>' +
-                   '    <div class="note-form-group form-group note-group-imageAttributes-role">' +
-                   '      <label class="control-label note-form-label col-sm-3">' + lang.imageAttributes.role + '</label>' +
-                   '      <div class="input-group note-input-group col-xs-12 col-sm-9">' +
-                   '        <input class="note-imageAttributes-role form-control note-form-control note-input" type="text">' +
-                   '      </div>' +
-                   '    </div>' +
-                   '  </div>' +
-                   // Tab 3
-                   '  <div class="tab-pane note-tab-pane" id="note-imageAttributes-link' + timestamp + '">' +
+                   '  <div class="tab-pane note-tab-pane fade in active show" id="note-imageAttributes-link' + timestamp + '">' +
                    '    <div class="note-form-group form-group note-group-imageAttributes-link-href">' +
                    '      <label class="control-label note-form-label col-xs-3">' + lang.imageAttributes.linkHref + '</label>' +
                    '      <div class="input-group note-input-group col-xs-12 col-sm-9">' +
@@ -133,31 +109,6 @@
                    '      </div>' +
                    '      <small class="help-block note-help-block text-right">' + lang.imageAttributes.linkTargetInfo + '</small>' +
                    '    </div>' +
-                   '    <div class="note-form-group form-group note-group-imageAttributes-link-class">' +
-                   '      <label class="control-label note-form-label col-xs-3">' + lang.imageAttributes.linkClass + '</label>' +
-                   '      <div class="input-group note-input-group col-xs-12 col-sm-9">' +
-                   '        <input class="note-imageAttributes-link-class form-control note-form-control note-input" type="text">' +
-                   '      </div>' +
-                   '    </div>' +
-                   '    <div class="note-form-group form-group note-group-imageAttributes-link-style">' +
-                   '      <label class="control-label note-form-label col-xs-3">' + lang.imageAttributes.linkStyle + '</label>' +
-                   '      <div class="input-group note-input-group col-xs-12 col-sm-9">' +
-                   '        <input class="note-imageAttributes-link-style form-control note-form-control note-input" type="text">' +
-                   '      </div>' +
-                   '    </div>' +
-                   '    <div class="note-form-group form-group note-group-imageAttributes-link-rel">' +
-                   '      <label class="control-label note-form-label col-xs-3">' + lang.imageAttributes.linkRel + '</label>' +
-                   '      <div class="input-group note-input-group col-xs-12 col-sm-9">' +
-                   '        <input class="note-imageAttributes-link-rel form-control note-form-control note-input" type="text">' +
-                   '      </div>' +
-                   '      <small class="help-block note-help-block text-right">' + lang.imageAttributes.linkRelInfo + '</small>' +
-                   '    </div>' +
-                   '    <div class="note-form-group form-group note-group-imageAttributes-link-role">' +
-                   '      <label class="control-label note-form-label col-xs-3">' + lang.imageAttributes.linkRole + '</label>' +
-                   '      <div class="input-group note-input-group col-xs-12 col-sm-9">' +
-                   '        <input class="note-imageAttributes-link-role form-control note-form-control note-input" type="text">' +
-                   '      </div>' +
-                   '    </div>' +
                    '  </div>';
       if (options.imageAttributes.disableUpload == false) {
                    // Tab 4
@@ -169,39 +120,7 @@
                    '    </div>' +
                    '  </div>';
         }
-        // Tab 1
-        body +=    '  <div class="tab-pane note-tab-pane fade in active" id="note-imageAttributes' + timestamp + '">' +
-                   '    <div class="note-form-group form-group note-group-imageAttributes-url">' +
-                   '      <label class="control-label note-form-label col-sm-3">' + lang.imageAttributes.src + '</label>' +
-                   '      <div class="input-group note-input-group col-xs-12 col-sm-9">' +
-                   '        <input class="note-imageAttributes-src form-control note-form-control note-input" type="text" />' +
-//                   '        <span class="input-group-btn">' +
-//                   '          <button class="btn btn-default class="note-imageAttributes-browse">' + lang.imageAttributes.browse + '</button>' +
-//                   '        </span>' +
-                   '      </div>' +
-                   '    </div>' +
-                   '    <div class="note-form-group form-group note-group-imageAttributes-title">' +
-                   '      <label class="control-label note-form-label col-sm-3">' + lang.imageAttributes.title + '</label>' +
-                   '      <div class="input-group note-input-group col-xs-12 col-sm-9">' +
-                   '        <input class="note-imageAttributes-title form-control note-form-control note-input" type="text" />' +
-                   '      </div>' +
-                   '    </div>' +
-                   '    <div class="note-form-group form-group note-group-imageAttributes-alt">' +
-                   '      <label class="control-label note-form-label col-sm-3">' + lang.imageAttributes.alt + '</label>' +
-                   '      <div class="input-group note-input-group col-xs-12 col-sm-9">' +
-                   '        <input class="note-imageAttributes-alt form-control note-form-control note-input" type="text" />' +
-                   '      </div>' +
-                   '    </div>' +
-                   '    <div class="note-form-group form-group note-group-imageAttributes-dimensions">' +
-                   '      <label class="control-label note-form-label col-sm-3">' + lang.imageAttributes.dimensions + '</label>' +
-                   '      <div class="input-group note-input-group col-xs-12 col-sm-9">' +
-                   '        <input class="note-imageAttributes-width form-control note-form-control note-input" type="text" />' +
-                   '        <span class="input-group-addon note-input-group-addon">x</span>' +
-                   '        <input class="note-imageAttributes-height form-control note-form-control note-input" type="text" />' +
-                   '      </div>' +
-                   '    </div>' +
-                   '  </div>' +
-                   '</div>';
+        body += '</div>';
         this.$dialog=ui.dialog({
           title:  lang.imageAttributes.dialogTitle,
           body:   body,
