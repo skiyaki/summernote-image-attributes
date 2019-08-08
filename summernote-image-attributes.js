@@ -39,7 +39,7 @@
         tabLink: 'リンク',
           linkHref: 'URL',
           linkTarget: 'Target',
-          linkTargetInfo: '選択可能: _self, _blank, _top, _parent',
+          linkTargetInfo: '新規タブで開く場合は _blank と入力して下さい',
           linkClass: 'Class',
           linkStyle: 'Style',
           linkRel: 'Rel',
