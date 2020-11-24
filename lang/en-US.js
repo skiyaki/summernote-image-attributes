@@ -1,5 +1,5 @@
 $.extend(true,$.summernote.lang,{
-  'en-US':{ /* Spanish */
+  'en-US':{ /* English */
     imageAttributes:{
       dialogTitle: 'Image Attributes',
       tooltip: 'Image Attributes',
