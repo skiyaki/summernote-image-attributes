@@ -16,7 +16,7 @@ $.extend(true,$.summernote.lang,{
       tabLink: '링크',
         linkHref: 'URL',
         linkTarget: '여는 방법',
-        linkTargetInfo: '옵션: _self, _blank, _top, _parent',
+        linkTargetInfo: '신규 탭을 열려면 _blank 를 입력해 주시기 바랍니다',
         linkClass: '클래스',
         linkStyle: '스타일',
         linkRel: '관계',

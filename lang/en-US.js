@@ -16,7 +16,7 @@ $.extend(true,$.summernote.lang,{
       tabLink: 'Link',
         linkHref: 'URL',
         linkTarget: 'Target',
-        linkTargetInfo: 'Options: _self, _blank, _top, _parent',
+        linkTargetInfo: 'Please enter "_blank" when open in a new tab',
         linkClass: 'Class',
         linkStyle: 'Style',
         linkRel: 'Rel',
